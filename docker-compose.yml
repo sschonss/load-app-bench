@@ -1,0 +1,18 @@
+version: '3'
+services:
+  load-app:
+    container_name: load-app
+    image: load-app-image
+    build:
+      context: .
+    volumes:
+      - ./:/opt/www
+    ports:
+      - 9501:9501
+    environment:
+      - APP_ENV=dev
+      - SCAN_CACHEABLE=false
+
+networks:
+  default:
+    name: hyperf-skeleton
